@@ -30,7 +30,7 @@ public class EstruturaLivro {
 		countSubsecao = 0;
 		countParagrafo = 0;
 		pagina = 0;
-		controleLinhas = 0;
+		controleLinhas = 1;
 	}
 
 	public String getRefTitulo() {
@@ -92,7 +92,7 @@ public class EstruturaLivro {
 	}
 
 
-	
+
 	public int getPagina() {
 		return pagina;
 	}
@@ -104,10 +104,11 @@ public class EstruturaLivro {
 	
 	public void controleLinhas(int countLinha) throws IOException {
 		this.controleLinhas += countLinha;
-
+		
 		if(this.controleLinhas >= 16){
-			this.controleLinhas = 1;
 			pagina++;
+			this.controleLinhas = 1;
+			
 			Livro.gravarLivro.write("------------------------------------- Pg."+getPagina());
 			Livro.gravarLivro.newLine();
 		}

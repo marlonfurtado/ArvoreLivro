@@ -73,7 +73,7 @@ public class Livro extends EstruturaLivro {
 
 
 				// GERAR SUMARIO 
-				arvSumario.add(titulo, null);
+				arvSumario.add("", null);
 
 				break;
 
@@ -88,8 +88,8 @@ public class Livro extends EstruturaLivro {
 				setRefCapitulo(capitulo);
 
 				// GRAVAR LIVRO
-				controleLinhas(1);
 				if(getCountCapitulo() > 1){
+					// A CADA NOVO CAPITULO, MUDA DE PAGINA
 					controleLinhas(99);
 				}
 				gravarLivro.write(String.valueOf(getControleLinhas())+"   ");
@@ -99,9 +99,9 @@ public class Livro extends EstruturaLivro {
 
 				// GERAR SUMÁRIO
 				String capituloSumario = getCountCapitulo() + ". " + capitulo
-						+ "..............." + getPagina();
+						+ "..............." + (getPagina()+1);
 				
-				arvSumario.add(capituloSumario, getRefTitulo());
+				arvSumario.add(capituloSumario, "");
 
 				setRefCapitulo(capituloSumario);
 
@@ -112,7 +112,7 @@ public class Livro extends EstruturaLivro {
 				// ADICIONAR NA ÁRVORE
 				String secao = auxLinha.replaceFirst(primeiraLetra, "");
 
-				arv.add(secao, getRefCapitulo());
+		arv.add(secao, getRefCapitulo());
 
 				countSecao++;
 				
@@ -128,7 +128,7 @@ public class Livro extends EstruturaLivro {
 
 				// GERAR SUMARIO
 				String secaoSumario = getCountCapitulo() +"."+ getCountSecao() + " " + secao
-						+ "..............." + getPagina();
+						+ "..............." + (getPagina()+1);
 				arvSumario.add(secaoSumario, getRefCapitulo());
 
 				setRefSecao(secaoSumario);
@@ -156,7 +156,7 @@ public class Livro extends EstruturaLivro {
 
 				// GERAR SUMARIO
 				String subsecaoSumario = getCountCapitulo() + "." + getCountSecao() + "." + getCountSubsecao() + " " + subsecao
-						+ "..............." + getPagina(); 
+						+ "..............." + (getPagina()+1); 
 				arvSumario.add(subsecaoSumario, getRefSecao());
 
 				break;
@@ -202,6 +202,7 @@ public class Livro extends EstruturaLivro {
 				break;
 			}
 		}
+		gravarLivro.write("------------------------------------- Pg."+(getPagina()+1)+"\n");
 		return arv;
 	}
 
@@ -213,11 +214,9 @@ public class Livro extends EstruturaLivro {
 	}
 
 	public void gerarSumario() throws IOException{
-
-		// FALTA ARRUMAR PAGINAS
-
+		
 		gravarLivro.newLine();
-		gravarLivro.write("SUMARIO \n");
+		gravarLivro.write("\nSUMÁRIO \n");
 
 		for (String auxLinha : arvSumario.positionsPre()) {
 			gravarLivro.write(auxLinha);

@@ -1,7 +1,6 @@
 package app;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import arvore.GeneralTreeOfString;
 
@@ -24,7 +23,7 @@ public class App {
 		try{
 			Livro livro = new Livro(ler, gravar);
 			GeneralTreeOfString arv = livro.gerarLivro();
-
+			
 			System.out.print("Carregando arquivo 'livro.txt' ...");
 			livro.lerLivro();
 			System.out.println(" OK");
@@ -35,7 +34,7 @@ public class App {
 
 
 
-			System.out.println("Linhas: "+livro.linha.size());
+			System.out.println("\nLinhas: "+livro.linha.size());
 			System.out.println("Arvore: "+arv.size());
 
 
