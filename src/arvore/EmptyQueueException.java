@@ -1,4 +1,4 @@
-package livro;
+package arvore;
 
 public class EmptyQueueException extends RuntimeException {
 
