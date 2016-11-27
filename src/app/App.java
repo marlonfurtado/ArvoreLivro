@@ -32,12 +32,6 @@ public class App {
 			livro.gerarLivro();
 			System.out.println(" OK");
 
-
-
-			System.out.println("\nLinhas: "+livro.linha.size());
-			System.out.println("Arvore: "+arv.size());
-
-
 			System.out.println("\nCapitulos...: " + livro.getCountCapitulo());
 			System.out.println("Seções...: " + livro.getCountSecao());
 			System.out.println("Subseções...: " + livro.getCountSubsecao());

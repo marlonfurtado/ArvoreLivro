@@ -202,7 +202,6 @@ public class Livro extends EstruturaLivro {
 				break;
 			}
 		}
-		//gravarLivro.write("------------------------------------- Pg."+(getPagina()+1)+"\n");
 		return arv;
 	}
 
